@@ -10,8 +10,10 @@ import {
 
 import { trytm } from "@bdsqqq/try";
 import colors from "picocolors";
+
 import { COMMIT_TYPES } from "./commit-types.js";
 import { getChangedFiles, getStagedFiles, gitAdd, gitCommit } from "./git.js";
+import { exitProgram } from "./utils.js";
 
 intro(
   colors.inverse(
@@ -41,10 +43,9 @@ if (stagedFiles.length === 0 && changedFiles.length > 0) {
     })),
   });
 
-  if (isCancel(files)) {
-    outro(colors.yellow("No hay archivos para commitear"));
-    process.exit(0);
-  }
+  if (isCancel(files))
+    exitProgram({ message: "No hay archivos para commitear" });
+
   await gitAdd({ files });
 }
 
@@ -58,6 +59,9 @@ const commitType = await select({
   })),
 });
 
+if (isCancel(commitType))
+  exitProgram({ message: "No se ha elegido un tipo de commit" });
+
 // DEBUG: console.log(commitType);
 
 const commitMessage = await text({
@@ -69,6 +73,9 @@ const commitMessage = await text({
       return colors.red("El mensaje no puede tener mas de 50 caracteres");
   },
 });
+
+if (isCancel(commitMessage))
+  exitProgram({ message: "No se ha completado el mensaje del commit" });
 
 const { emoji, release } = COMMIT_TYPES[commitType];
 
@@ -86,6 +93,8 @@ if (release) {
     )}  
     `,
   });
+
+  if (isCancel(breakingChange)) exitProgram();
 }
 
 let commit = `${emoji} ${commitType}: ${commitMessage}`;
@@ -97,6 +106,9 @@ const shouldContinue = await confirm({
     ${colors.green(colors.bold(commit))}
     ${colors.cyan("¿Confirmas?")}`,
 });
+
+if (isCancel(shouldContinue))
+  exitProgram({ message: "No se ha creado el commit" });
 
 if (!shouldContinue) {
   outro(colors.yellow("No se ha creado el commit"));
