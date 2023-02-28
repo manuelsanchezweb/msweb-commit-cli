@@ -1,23 +1,28 @@
 {
-  "name": "cli",
+  "name": "mswebco",
   "version": "1.0.0",
-  "description": "",
+  "description": "Help you to create commits easier",
   "type": "module",
+  "bin": {
+    "mswebco": "./src/bin.js"
+  },
   "main": "index.js",
   "scripts": {
+    "co": "mswebco",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "picocolors": "^1.0.0",
+    "mswebco": "file://.",
     "standard": "^17.0.0"
   },
   "eslintConfig": {
     "extends": "standard"
   },
   "dependencies": {
+    "picocolors": "^1.0.0",
     "@bdsqqq/try": "^2.3.1",
     "@clack/prompts": "^0.6.1"
   }

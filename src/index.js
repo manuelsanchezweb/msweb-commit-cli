@@ -1,13 +1,14 @@
-import { trytm } from "@bdsqqq/try";
 import {
   confirm,
   intro,
+  isCancel,
   multiselect,
   outro,
   select,
   text,
 } from "@clack/prompts";
 
+import { trytm } from "@bdsqqq/try";
 import colors from "picocolors";
 import { COMMIT_TYPES } from "./commit-types.js";
 import { getChangedFiles, getStagedFiles, gitAdd, gitCommit } from "./git.js";
@@ -39,10 +40,15 @@ if (stagedFiles.length === 0 && changedFiles.length > 0) {
       value: file,
     })),
   });
+
+  if (isCancel(files)) {
+    outro(colors.yellow("No hay archivos para commitear"));
+    process.exit(0);
+  }
   await gitAdd({ files });
 }
 
-// console.log(changedFiles, stagedFiles);
+// DEBUG: console.log(changedFiles, stagedFiles);
 
 const commitType = await select({
   message: "Selecciona el tipo de commit:",
@@ -52,7 +58,7 @@ const commitType = await select({
   })),
 });
 
-// console.log(commitType);
+// DEBUG: console.log(commitType);
 
 const commitMessage = await text({
   message: colors.cyan("Introduce el texto del commit:"),
