@@ -80,7 +80,7 @@ export const LANGUAGES_TEXT = {
   ),
   errorGit: colors.red("Fehler: Bitte überprüfe, ob du dich in einem Git Repo befindest!"),
   checkIfConflict:
-    "Hast du überprüft, dass du nicht ziehen (pullen) musst oder ähnliches? Wir sind Friedensstifter und wollen keine Konflikte...",
+    "Hast du überprüft, ob du nicht ziehen (pullen) musst oder ähnliches? Wir sind Friedensstifter und wollen keine Konflikte...",
   filesToAdd:
     "Du hast noch keine Dateien zur Verfügung gestellt (staged). Willst du einige dieser Dateien hinzufügen?",
   commitType: "Wähle den Commit-Typ aus:",
