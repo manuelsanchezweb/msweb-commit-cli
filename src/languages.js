@@ -13,7 +13,7 @@ export const LANGUAGES = {
   },
    de: {
     emoji: "🇩🇪",
-    description: "Germany",
+    description: "Deutsch",
     locale: "de",
   },
 };
