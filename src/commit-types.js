@@ -1,32 +1,32 @@
 export const COMMIT_TYPES = {
   feat: {
     emoji: "🆕",
-    description: "Añade una nueva funcionalidad",
+    description: "Add a new functionality",
     release: true,
   },
   fix: {
     emoji: "🐛",
-    description: "Arregla un bug",
+    description: "Fix a bug",
     release: true,
   },
   refactor: {
     emoji: "🛠 ",
-    description: "Refactoriza código",
+    description: "Refactor some code",
     release: true,
   },
   hotfix: {
     emoji: "🔥",
-    description: "Arreglar un pequeño problema",
+    description: "Fix a small issue",
     release: true,
   },
   docs: {
     emoji: "📄",
-    description: "Añade algo de documentación",
+    description: "Add some docu",
     release: true,
   },
   test: {
     emoji: "🧪",
-    description: "Añade test al proyecto",
+    description: "Add some tests",
     release: true,
   },
 };
