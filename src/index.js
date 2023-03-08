@@ -32,6 +32,22 @@ if (errorChangedFiles ?? errorStagedFiles) {
   process.exit(1);
 }
 
+const isEverythingUpdated = await confirm({
+  initialValue: true,
+  message: `${colors.cyan(
+    "¿Has procurado que no vaya a ver un conflicto después de este commit? (Si no, prueba a hacer un pull)"
+  )}
+    ${colors.cyan("¿Confirmas?")}`,
+});
+
+if (isCancel(isEverythingUpdated))
+  exitProgram({ message: "No se ha creado el commit" });
+
+if (!isEverythingUpdated) {
+  outro(colors.yellow("No se ha creado el commit"));
+  process.exit(0);
+}
+
 if (stagedFiles.length === 0 && changedFiles.length > 0) {
   const files = await multiselect({
     message: colors.cyan(

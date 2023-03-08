@@ -12,4 +12,4 @@ Tan solo haz `npx mswebco` y sigue los sencillos pasos de la CLI.
 
 ## Screens
 
-![Ejemplo de uso](/src/assets/example-of-use.png)
+![Ejemplo de uso](https://raw.githubusercontent.com/manuelsanchezweb/msweb-commit-cli/main/src/assets/example-of-use.png)
