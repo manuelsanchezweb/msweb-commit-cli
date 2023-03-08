@@ -16,7 +16,6 @@ import { getChangedFiles, getStagedFiles, gitAdd, gitCommit } from "./git.js";
 import { LANGUAGES, LANGUAGES_TEXT } from "./languages.js";
 import { exitProgram } from "./utils.js";
 
-const languages = ["en, es"];
 let languageSelected = "en";
 
 languageSelected = await select({
