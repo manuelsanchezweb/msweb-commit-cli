@@ -11,6 +11,11 @@ export const LANGUAGES = {
     description: "Español",
     locale: "es",
   },
+   de: {
+    emoji: "🇩🇪",
+    description: "Deutsch",
+    locale: "de",
+  },
 };
 
 export const LANGUAGES_TEXT = {
@@ -69,4 +74,30 @@ export const LANGUAGES_TEXT = {
     exitNoCommitMessage: "No se ha completado el texto del commit",
     confirmQuestion: "¿Confirmas?",
   },
+  de: {
+  intro: colors.inverse(
+    `Hallo! Ich bin dein Commit-Assistent! ${colors.yellow("Hoffentlich hilft das")}`
+  ),
+  errorGit: colors.red("Fehler: Bitte überprüfe, ob du dich in einem Git Repo befindest!"),
+  checkIfConflict:
+    "Hast du überprüft, ob du nicht ziehen (pullen) musst oder ähnliches? Wir sind Friedensstifter und wollen keine Konflikte...",
+  filesToAdd:
+    "Du hast noch keine Dateien zur Verfügung gestellt (staged). Willst du einige dieser Dateien hinzufügen?",
+  commitType: "Wähle den Commit-Typ aus:",
+  commitText: "Gib den Text der Übergabe (Commits) ein:",
+  commitValidationEmpty: "Der Commit-Text darf nicht leer sein!",
+  commitValidation50: "Commit-Text darf nicht länger als 50 Zeichen sein!",
+  breakingChangeQuestion:
+    "Enthält dieser Commit Änderungen, die die bisherige Kompatibilität beeinträchtigen (könnten)?",
+  breakingChangeMessage:
+    "Wenn ja, sollten Sie einen Commit mit dem Typ 'Breaking Change' erstellen",
+  lastConfirm: "Willst du den Commit mit der folgenden Nachricht erstellen?",
+  successMessage:
+    "✔️ Commit erfolgreich erstellt. Vielen Dank für die Nutzung des Commit-Assistenten!",
+  exitDefault: "Der Commit wurde nicht erstellt.",
+  exitNoFiles: "Keine Dateien zu übertragen",
+  exitNoCommitType: "Keinen Commit-Typen ausgewählt",
+  exitNoCommitMessage: "Commit-Nachricht wurde nicht abgeschlossen",
+  confirmQuestion: "Bestätigen?",
+},
 };
