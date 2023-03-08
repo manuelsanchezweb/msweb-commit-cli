@@ -27,7 +27,7 @@ languageSelected = await select({
 });
 
 if (isCancel(languageSelected))
-  exitProgram({ message: "No se ha elegido un idioma" });
+  exitProgram({ message: "No language was chosen" });
 
 intro(LANGUAGES_TEXT[languageSelected].intro);
 
