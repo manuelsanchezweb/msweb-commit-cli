@@ -148,29 +148,20 @@ await gitCommit({ commit });
 
 note(colors.cyan(LANGUAGES_TEXT[languageSelected].successMessage));
 
+const currentBranch = await getCurrentBranch();
+
 const shouldPush = await confirm({
   initialValue: true,
-  message: LANGUAGES_TEXT[languageSelected].pushQuestion,
+  message: `${colors.cyan(
+    LANGUAGES_TEXT[languageSelected].pushQuestion
+  )} ${colors.green(currentBranch)}?`,
 });
 
 if (isCancel(shouldPush))
   exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
 
 if (shouldPush) {
-  const currentBranch = await getCurrentBranch();
-
-  if (isCancel(currentBranch))
-    exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
-
-  const sure = await confirm({
-    initialValue: true,
-    message: `Do you want to push to ${colors.cyan(currentBranch)}?`,
-  });
-
-  if (isCancel(sure))
-    exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
-
   await gitPush({ currentBranch });
 }
 
-outro(colors.green(LANGUAGES_TEXT[languageSelected].successMessage));
+outro(colors.green(LANGUAGES_TEXT[languageSelected].finalMessage));
