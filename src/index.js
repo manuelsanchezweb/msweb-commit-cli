@@ -162,6 +162,8 @@ if (isCancel(shouldPush))
 
 if (shouldPush) {
   await gitPush({ currentBranch });
+
+  note(colors.cyan(LANGUAGES_TEXT[languageSelected].successPush));
 }
 
 outro(colors.green(LANGUAGES_TEXT[languageSelected].finalMessage));
