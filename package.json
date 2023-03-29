@@ -1,6 +1,6 @@
 {
   "name": "mswebco",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Help you to create commits easier",
   "type": "module",
   "bin": {
