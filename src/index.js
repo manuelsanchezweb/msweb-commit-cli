@@ -154,15 +154,12 @@ if (isCancel(shouldPush))
   exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
 
 if (shouldPush) {
-  const pushBranch = await text({
-    message: LANGUAGES_TEXT[languageSelected].pushBranch,
-  });
+  const pushBranch = await getCurrentBranch();
 
   if (isCancel(pushBranch))
     exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
 
-  const currentBranch = pushBranch || (await getCurrentBranch());
-  await gitPush({ branch: currentBranch });
+  await gitPush({ branch: pushBranch });
 }
 
 outro(colors.green(LANGUAGES_TEXT[languageSelected].successMessage));
