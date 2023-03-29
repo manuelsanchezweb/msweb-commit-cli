@@ -160,6 +160,8 @@ if (shouldPush) {
   if (isCancel(pushBranch))
     exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
 
+  console.log(pushBranch);
+
   await gitPush({ branch: pushBranch });
 }
 
