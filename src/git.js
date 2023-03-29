@@ -29,3 +29,8 @@ export async function gitAdd({ files = [] } = {}) {
   const { stdout } = await execAsync(`git add ${filesLine}`);
   return cleanStdout(stdout);
 }
+
+export async function gitPush({ branch = "origin" }) {
+  const { stdout } = await execAsync(`git push ${branch}`);
+  return cleanStdout(stdout);
+}

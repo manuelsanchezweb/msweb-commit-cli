@@ -12,7 +12,13 @@ import { trytm } from "@bdsqqq/try";
 import colors from "picocolors";
 
 import { COMMIT_TYPES } from "./commit-types.js";
-import { getChangedFiles, getStagedFiles, gitAdd, gitCommit } from "./git.js";
+import {
+  getChangedFiles,
+  getStagedFiles,
+  gitAdd,
+  gitCommit,
+  gitPush,
+} from "./git.js";
 import { LANGUAGES, LANGUAGES_TEXT } from "./languages.js";
 import { exitProgram } from "./utils.js";
 
@@ -137,5 +143,30 @@ if (!shouldContinue) {
 }
 
 await gitCommit({ commit });
+
+const shouldPush = await confirm({
+  initialValue: true,
+  message: LANGUAGES_TEXT[languageSelected].pushQuestion,
+});
+
+if (isCancel(shouldPush))
+  exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
+
+if (shouldPush) {
+  const pushBranch = await text({
+    message: LANGUAGES_TEXT[languageSelected].pushBranch,
+    validate: (value) => {
+      if (value.length === 0)
+        return colors.red(
+          LANGUAGES_TEXT[languageSelected].pushBranchValidation
+        );
+    },
+  });
+
+  if (isCancel(pushBranch))
+    exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
+
+  await gitPush({ branch: pushBranch });
+}
 
 outro(colors.green(LANGUAGES_TEXT[languageSelected].successMessage));

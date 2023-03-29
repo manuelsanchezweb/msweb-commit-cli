@@ -11,12 +11,12 @@ export const LANGUAGES = {
     description: "Español",
     locale: "es",
   },
-   de: {
+  de: {
     emoji: "🇩🇪",
     description: "Deutsch",
     locale: "de",
   },
-   ru: {
+  ru: {
     emoji: "🇷🇺",
     description: "Русский",
     locale: "ru",
@@ -49,6 +49,9 @@ export const LANGUAGES_TEXT = {
     exitNoCommitType: "No commit type chosen",
     exitNoCommitMessage: "Commit message was not completed",
     confirmQuestion: "Confirm?",
+    pushQuestion: "Do you want to push the changes?",
+    pushBranch: "Enter the branch name to push (leave empty for 'origin'):",
+    pushBranchValidation: "The branch name cannot be empty.",
   },
   es: {
     intro: colors.inverse(
@@ -78,57 +81,77 @@ export const LANGUAGES_TEXT = {
     exitNoCommitType: "No se ha elegido un tipo de commit",
     exitNoCommitMessage: "No se ha completado el texto del commit",
     confirmQuestion: "¿Confirmas?",
+    pushQuestion: "¿Quieres hacer push de los cambios?",
+    pushBranch:
+      "Introduce el nombre de la branch a la que hacer push (deja vacío para 'origin'):",
+    pushBranchValidation: "El nombre de la branch no puede estar vacío.",
   },
   de: {
-  intro: colors.inverse(
-    `Hallo! Ich bin dein Commit-Assistent! ${colors.yellow("Hoffentlich hilft das")}`
-  ),
-  errorGit: colors.red("Fehler: Bitte überprüfe, ob du dich in einem Git Repo befindest!"),
-  checkIfConflict:
-    "Hast du überprüft, ob du nicht ziehen (pullen) musst oder ähnliches? Wir sind Friedensstifter und wollen keine Konflikte...",
-  filesToAdd:
-    "Du hast noch keine Dateien zur Verfügung gestellt (staged). Willst du einige dieser Dateien hinzufügen?",
-  commitType: "Wähle den Commit-Typ aus:",
-  commitText: "Gib den Text der Übergabe (Commits) ein:",
-  commitValidationEmpty: "Der Commit-Text darf nicht leer sein!",
-  commitValidation50: "Commit-Text darf nicht länger als 50 Zeichen sein!",
-  breakingChangeQuestion:
-    "Enthält dieser Commit Änderungen, die die bisherige Kompatibilität beeinträchtigen (könnten)?",
-  breakingChangeMessage:
-    "Wenn ja, sollten Sie einen Commit mit dem Typ 'Breaking Change' erstellen",
-  lastConfirm: "Willst du den Commit mit der folgenden Nachricht erstellen?",
-  successMessage:
-    "✔️ Commit erfolgreich erstellt. Vielen Dank für die Nutzung des Commit-Assistenten!",
-  exitDefault: "Der Commit wurde nicht erstellt.",
-  exitNoFiles: "Keine Dateien zu übertragen",
-  exitNoCommitType: "Keinen Commit-Typen ausgewählt",
-  exitNoCommitMessage: "Commit-Nachricht wurde nicht abgeschlossen",
-  confirmQuestion: "Bestätigen?",
+    intro: colors.inverse(
+      `Hallo! Ich bin dein Commit-Assistent! ${colors.yellow(
+        "Hoffentlich hilft das"
+      )}`
+    ),
+    errorGit: colors.red(
+      "Fehler: Bitte überprüfe, ob du dich in einem Git Repo befindest!"
+    ),
+    checkIfConflict:
+      "Hast du überprüft, ob du nicht ziehen (pullen) musst oder ähnliches? Wir sind Friedensstifter und wollen keine Konflikte...",
+    filesToAdd:
+      "Du hast noch keine Dateien zur Verfügung gestellt (staged). Willst du einige dieser Dateien hinzufügen?",
+    commitType: "Wähle den Commit-Typ aus:",
+    commitText: "Gib den Text der Übergabe (Commits) ein:",
+    commitValidationEmpty: "Der Commit-Text darf nicht leer sein!",
+    commitValidation50: "Commit-Text darf nicht länger als 50 Zeichen sein!",
+    breakingChangeQuestion:
+      "Enthält dieser Commit Änderungen, die die bisherige Kompatibilität beeinträchtigen (könnten)?",
+    breakingChangeMessage:
+      "Wenn ja, sollten Sie einen Commit mit dem Typ 'Breaking Change' erstellen",
+    lastConfirm: "Willst du den Commit mit der folgenden Nachricht erstellen?",
+    successMessage:
+      "✔️ Commit erfolgreich erstellt. Vielen Dank für die Nutzung des Commit-Assistenten!",
+    exitDefault: "Der Commit wurde nicht erstellt.",
+    exitNoFiles: "Keine Dateien zu übertragen",
+    exitNoCommitType: "Keinen Commit-Typen ausgewählt",
+    exitNoCommitMessage: "Commit-Nachricht wurde nicht abgeschlossen",
+    confirmQuestion: "Bestätigen?",
+    pushQuestion: "Möchten Sie die Änderungen pushen?",
+    pushBranch:
+      "Geben Sie den Branch-Namen ein, um ihn zu pushen (leer lassen für 'origin'):",
+    pushBranchValidation: "Der Branch-Name darf nicht leer sein.",
   },
   ru: {
-  intro: colors.inverse(
-  `Привет! Я твой помощник по коммитам! ${colors.yellow("Надеюсь, это поможет")}`
-  ),
-  errorGit: colors.red("Ошибка: Пожалуйста, проверьте, находитесь ли вы в репозитории Git!"),
-  checkIfConflict:
-  "Вы проверили, не нужно ли сначала обновить репозиторий? Мы хотим избежать конфликтов...",
-  filesToAdd:
-  "Вы еще не добавили никаких файлов. Хотите добавить некоторые файлы?",
-  commitType: "Выберите тип коммита:",
-  commitText: "Введите текст коммита:",
-  commitValidationEmpty: "Текст коммита не может быть пустым!",
-  commitValidation50: "Текст коммита не может быть длиннее 50 символов!",
-  breakingChangeQuestion:
-  "Содержит ли этот коммит изменения, которые могут повлиять на совместимость с предыдущими версиями?",
-  breakingChangeMessage:
-  "Если да, вам следует создать коммит с типом 'Breaking Change'",
-  lastConfirm: "Вы хотите создать коммит с сообщением ниже?",
-  successMessage:
-  "✔️ Коммит успешно создан. Благодарим вас за использование помощника по коммитам!",
-  exitDefault: "Коммит не был создан.",
-  exitNoFiles: "Нет файлов для коммита",
-  exitNoCommitType: "Тип коммита не выбран",
-  exitNoCommitMessage: "Сообщение коммита не завершено",
-  confirmQuestion: "Подтвердить?",
+    intro: colors.inverse(
+      `Привет! Я твой помощник по коммитам! ${colors.yellow(
+        "Надеюсь, это поможет"
+      )}`
+    ),
+    errorGit: colors.red(
+      "Ошибка: Пожалуйста, проверьте, находитесь ли вы в репозитории Git!"
+    ),
+    checkIfConflict:
+      "Вы проверили, не нужно ли сначала обновить репозиторий? Мы хотим избежать конфликтов...",
+    filesToAdd:
+      "Вы еще не добавили никаких файлов. Хотите добавить некоторые файлы?",
+    commitType: "Выберите тип коммита:",
+    commitText: "Введите текст коммита:",
+    commitValidationEmpty: "Текст коммита не может быть пустым!",
+    commitValidation50: "Текст коммита не может быть длиннее 50 символов!",
+    breakingChangeQuestion:
+      "Содержит ли этот коммит изменения, которые могут повлиять на совместимость с предыдущими версиями?",
+    breakingChangeMessage:
+      "Если да, вам следует создать коммит с типом 'Breaking Change'",
+    lastConfirm: "Вы хотите создать коммит с сообщением ниже?",
+    successMessage:
+      "✔️ Коммит успешно создан. Благодарим вас за использование помощника по коммитам!",
+    exitDefault: "Коммит не был создан.",
+    exitNoFiles: "Нет файлов для коммита",
+    exitNoCommitType: "Тип коммита не выбран",
+    exitNoCommitMessage: "Сообщение коммита не завершено",
+    confirmQuestion: "Подтвердить?",
+    pushQuestion: "Вы хотите отправить изменения?",
+    pushBranch:
+      "Введите имя ветки для отправки (оставьте пустым для 'origin'):",
+    pushBranchValidation: "Имя ветки не может быть пустым.",
   },
 };
