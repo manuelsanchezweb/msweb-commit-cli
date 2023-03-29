@@ -37,20 +37,11 @@ export async function getCurrentBranch() {
 
 export async function gitPush({ branch = "origin" }) {
   try {
-    const { stdout, stderr } = await execAsync(`git push ${branch}`);
-    if (stderr) throw new Error(stderr);
-    return stdout;
+    const { stdout } = await execAsync(
+      `git push --set-upstream ${branch} ${currentBranch}`
+    );
+    return cleanStdout(stdout);
   } catch (error) {
-    // Check if the error is due to no upstream branch
-    if (error.message.includes("no upstream branch")) {
-      const currentBranch = await getCurrentBranch();
-      const { stdout, stderr } = await execAsync(
-        `git push --set-upstream ${branch} ${currentBranch}`
-      );
-      if (stderr) throw new Error(stderr);
-      return stdout;
-    } else {
-      throw error;
-    }
+    return error;
   }
 }
