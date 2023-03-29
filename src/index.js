@@ -159,6 +159,14 @@ if (shouldPush) {
   if (isCancel(pushBranch))
     exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
 
+  const sure = await confirm({
+    initialValue: true,
+    message: `Do you want to push to ${colors.cyan(pushBranch)}?`,
+  });
+
+  if (isCancel(sure))
+    exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
+
   await gitPush(pushBranch);
 }
 
