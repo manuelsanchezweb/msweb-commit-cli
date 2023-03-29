@@ -30,7 +30,14 @@ export async function gitAdd({ files = [] } = {}) {
   return cleanStdout(stdout);
 }
 
-export async function gitPush({ branch = "origin" }) {
-  const { stdout } = await execAsync(`git push ${branch}`);
+export async function getCurrentBranch() {
+  const { stdout } = await execAsync("git symbolic-ref --short HEAD");
+  return cleanStdout(stdout);
+}
+
+export async function gitPush({ currentBranch } = {}) {
+  const { stdout } = await execAsync(
+    `git push --set-upstream origin ${currentBranch}`
+  );
   return cleanStdout(stdout);
 }

@@ -3,6 +3,7 @@ import {
   intro,
   isCancel,
   multiselect,
+  note,
   outro,
   select,
   text,
@@ -14,6 +15,7 @@ import colors from "picocolors";
 import { COMMIT_TYPES } from "./commit-types.js";
 import {
   getChangedFiles,
+  getCurrentBranch,
   getStagedFiles,
   gitAdd,
   gitCommit,
@@ -144,23 +146,24 @@ if (!shouldContinue) {
 
 await gitCommit({ commit });
 
+note(colors.cyan(LANGUAGES_TEXT[languageSelected].successMessage));
+
+const currentBranch = await getCurrentBranch();
+
 const shouldPush = await confirm({
   initialValue: true,
-  message: LANGUAGES_TEXT[languageSelected].pushQuestion,
+  message: `${colors.cyan(
+    LANGUAGES_TEXT[languageSelected].pushQuestion
+  )} ${colors.green(currentBranch)}?`,
 });
 
 if (isCancel(shouldPush))
   exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
 
 if (shouldPush) {
-  const pushBranch = await text({
-    message: LANGUAGES_TEXT[languageSelected].pushBranch,
-  });
+  await gitPush({ currentBranch });
 
-  if (isCancel(pushBranch))
-    exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
-
-  await gitPush({ branch: pushBranch });
+  note(colors.cyan(LANGUAGES_TEXT[languageSelected].successPush));
 }
 
-outro(colors.green(LANGUAGES_TEXT[languageSelected].successMessage));
+outro(colors.green(LANGUAGES_TEXT[languageSelected].finalMessage));

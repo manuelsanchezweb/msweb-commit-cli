@@ -42,16 +42,15 @@ export const LANGUAGES_TEXT = {
     breakingChangeMessage:
       "If yes, you should create a commit with type breaking change",
     lastConfirm: "Do you want to create the commit with the following message?",
-    successMessage:
-      "✔️ Commit created successfully. Thanks for using the commit assistant!",
+    successMessage: "✔️ Commit created successfully",
     exitDefault: "The commit was not created.",
     exitNoFiles: "No files to commit",
     exitNoCommitType: "No commit type chosen",
     exitNoCommitMessage: "Commit message was not completed",
     confirmQuestion: "Confirm?",
-    pushQuestion: "Do you want to push the changes?",
-    pushBranch: "Enter the branch name to push (leave empty for 'origin'):",
-    pushBranchValidation: "The branch name cannot be empty.",
+    pushQuestion: "Do you want to push the changes to the following branch?: ",
+    successPush: "✔️ Pushed successfully",
+    finalMessage: "Thanks for using the commit assistant!",
   },
   es: {
     intro: colors.inverse(
@@ -74,17 +73,15 @@ export const LANGUAGES_TEXT = {
     breakingChangeMessage:
       "Si la respuesta es sí, deberias crear un commit con el tipo de Breaking change",
     lastConfirm: "¿Quieres crear el commit con el siguiente mensaje?",
-    successMessage:
-      "✔️ Commit creado con éxito. ¡Gracias por usar el asistente!",
+    successMessage: "✔️ Commit creado con éxito",
     exitDefault: "No se ha creado el commit",
     exitNoFiles: "No hay archivos para commitear",
     exitNoCommitType: "No se ha elegido un tipo de commit",
     exitNoCommitMessage: "No se ha completado el texto del commit",
     confirmQuestion: "¿Confirmas?",
-    pushQuestion: "¿Quieres hacer push de los cambios?",
-    pushBranch:
-      "Introduce el nombre de la branch a la que hacer push (deja vacío para 'origin'):",
-    pushBranchValidation: "El nombre de la branch no puede estar vacío.",
+    pushQuestion: "¿Quieres hacer push de los cambios a la siguiente branch?: ",
+    successPush: "✔️ Push realizado con éxito",
+    finalMessage: "¡Gracias por usar el asistente!",
   },
   de: {
     intro: colors.inverse(
@@ -108,17 +105,15 @@ export const LANGUAGES_TEXT = {
     breakingChangeMessage:
       "Wenn ja, sollten Sie einen Commit mit dem Typ 'Breaking Change' erstellen",
     lastConfirm: "Willst du den Commit mit der folgenden Nachricht erstellen?",
-    successMessage:
-      "✔️ Commit erfolgreich erstellt. Vielen Dank für die Nutzung des Commit-Assistenten!",
+    successMessage: "✔️ Commit erfolgreich erstellt",
     exitDefault: "Der Commit wurde nicht erstellt.",
     exitNoFiles: "Keine Dateien zu übertragen",
     exitNoCommitType: "Keinen Commit-Typen ausgewählt",
     exitNoCommitMessage: "Commit-Nachricht wurde nicht abgeschlossen",
     confirmQuestion: "Bestätigen?",
-    pushQuestion: "Möchten Sie die Änderungen pushen?",
-    pushBranch:
-      "Geben Sie den Branch-Namen ein, um ihn zu pushen (leer lassen für 'origin'):",
-    pushBranchValidation: "Der Branch-Name darf nicht leer sein.",
+    pushQuestion: "Willst du die Änderungen auf den folgenden Branch pushen?: ",
+    successPush: "✔️ Push erfolgreich",
+    finalMessage: "Danke, dass du den Commit-Assistenten benutzt hast!",
   },
   ru: {
     intro: colors.inverse(
@@ -142,16 +137,14 @@ export const LANGUAGES_TEXT = {
     breakingChangeMessage:
       "Если да, вам следует создать коммит с типом 'Breaking Change'",
     lastConfirm: "Вы хотите создать коммит с сообщением ниже?",
-    successMessage:
-      "✔️ Коммит успешно создан. Благодарим вас за использование помощника по коммитам!",
+    successMessage: "✔️ Коммит успешно создан",
     exitDefault: "Коммит не был создан.",
     exitNoFiles: "Нет файлов для коммита",
     exitNoCommitType: "Тип коммита не выбран",
     exitNoCommitMessage: "Сообщение коммита не завершено",
     confirmQuestion: "Подтвердить?",
-    pushQuestion: "Вы хотите отправить изменения?",
-    pushBranch:
-      "Введите имя ветки для отправки (оставьте пустым для 'origin'):",
-    pushBranchValidation: "Имя ветки не может быть пустым.",
+    pushQuestion: "Вы хотите отправить изменения на следующую ветку?: ",
+    successPush: "✔️ Успешно отправлено",
+    finalMessage: "Спасибо, что использовали мой помощник по коммитам!",
   },
 };
