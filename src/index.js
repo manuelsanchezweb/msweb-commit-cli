@@ -14,6 +14,7 @@ import colors from "picocolors";
 import { COMMIT_TYPES } from "./commit-types.js";
 import {
   getChangedFiles,
+  getCurrentBranch,
   getStagedFiles,
   gitAdd,
   gitCommit,

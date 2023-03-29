@@ -30,7 +30,7 @@ export async function gitAdd({ files = [] } = {}) {
   return cleanStdout(stdout);
 }
 
-async function getCurrentBranch() {
+export async function getCurrentBranch() {
   const { stdout } = await execAsync("git symbolic-ref --short HEAD");
   return cleanStdout(stdout);
 }
