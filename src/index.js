@@ -24,7 +24,7 @@ import {
 import { LANGUAGES, LANGUAGES_TEXT } from "./languages.js";
 import { exitProgram } from "./utils.js";
 
-let languageSelected = "en";
+let languageSelected = Object.keys(LANGUAGES)[0];
 
 languageSelected = await select({
   message: "Select your language:",

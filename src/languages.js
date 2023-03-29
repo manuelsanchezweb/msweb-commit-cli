@@ -21,6 +21,11 @@ export const LANGUAGES = {
     description: "Русский",
     locale: "ru",
   },
+  fr: {
+    emoji: "🇫🇷",
+    description: "Français",
+    locale: "fr",
+  },
 };
 
 export const LANGUAGES_TEXT = {
@@ -146,5 +151,35 @@ export const LANGUAGES_TEXT = {
     pushQuestion: "Вы хотите отправить изменения на следующую ветку?: ",
     successPush: "✔️ Успешно отправлено",
     finalMessage: "Спасибо, что использовали мой помощник по коммитам!",
+  },
+  fr: {
+    intro: colors.inverse(
+      `Salut! Je suis ton pote de commit! ${colors.yellow(
+        "J'espère que ça va t'aider"
+      )}`
+    ),
+    errorGit: colors.red("Oups! Fais gaffe, t'es pas dans un dépôt Git!"),
+    checkIfConflict:
+      "T'as vérifié si t'as pas besoin de faire un pull? On veut pas de conflits...",
+    filesToAdd: "T'as pas encore ajouté de fichiers. Tu veux en ajouter?",
+    commitType: "Choisis le type de commit:",
+    commitText: "Écris le message de ton commit:",
+    commitValidationEmpty: "Le message du commit peut pas être vide!",
+    commitValidation50:
+      "Le message du commit peut pas avoir plus de 50 caractères!",
+    breakingChangeQuestion:
+      "Ton commit, il fait des trucs qui cassent la compatibilité avec les anciennes versions?",
+    breakingChangeMessage:
+      "Si oui, tu devrais faire un commit du type 'Breaking change'",
+    lastConfirm: "T'es sûr de vouloir créer le commit avec ce message?",
+    successMessage: "✔️ Nickel, le commit est créé",
+    exitDefault: "Bon, le commit a pas été créé.",
+    exitNoFiles: "Y'a pas de fichiers à commiter",
+    exitNoCommitType: "T'as pas choisi de type de commit",
+    exitNoCommitMessage: "T'as pas écrit de message pour le commit",
+    confirmQuestion: "T'es sûr?",
+    pushQuestion: "Tu veux pousser les changements sur la branche suivante?: ",
+    successPush: "✔️ Impec, le push est fait",
+    finalMessage: "Merci d'avoir utilisé mon assistant de commit!",
   },
 };
