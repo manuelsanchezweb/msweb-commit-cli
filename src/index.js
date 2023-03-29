@@ -155,12 +155,6 @@ if (isCancel(shouldPush))
 if (shouldPush) {
   const pushBranch = await text({
     message: LANGUAGES_TEXT[languageSelected].pushBranch,
-    validate: (value) => {
-      if (value.length === 0)
-        return colors.red(
-          LANGUAGES_TEXT[languageSelected].pushBranchValidation
-        );
-    },
   });
 
   if (isCancel(pushBranch))
