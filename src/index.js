@@ -160,9 +160,8 @@ if (shouldPush) {
   if (isCancel(pushBranch))
     exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
 
-  console.log(pushBranch);
-
-  await gitPush({ branch: pushBranch });
+  const currentBranch = pushBranch || (await getCurrentBranch());
+  await gitPush({ branch: currentBranch });
 }
 
 outro(colors.green(LANGUAGES_TEXT[languageSelected].successMessage));

@@ -30,7 +30,27 @@ export async function gitAdd({ files = [] } = {}) {
   return cleanStdout(stdout);
 }
 
-export async function gitPush({ branch = "origin" }) {
-  const { stdout } = await execAsync(`git push ${branch}`);
+async function getCurrentBranch() {
+  const { stdout } = await execAsync("git symbolic-ref --short HEAD");
   return cleanStdout(stdout);
+}
+
+export async function gitPush({ branch = "origin" }) {
+  try {
+    const { stdout, stderr } = await execAsync(`git push ${branch}`);
+    if (stderr) throw new Error(stderr);
+    return stdout;
+  } catch (error) {
+    // Check if the error is due to no upstream branch
+    if (error.message.includes("no upstream branch")) {
+      const currentBranch = await getCurrentBranch();
+      const { stdout, stderr } = await execAsync(
+        `git push --set-upstream ${branch} ${currentBranch}`
+      );
+      if (stderr) throw new Error(stderr);
+      return stdout;
+    } else {
+      throw error;
+    }
+  }
 }
