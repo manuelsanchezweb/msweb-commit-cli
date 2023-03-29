@@ -35,7 +35,7 @@ export async function getCurrentBranch() {
   return cleanStdout(stdout);
 }
 
-export async function gitPush({ currentBranch }) {
+export async function gitPush({ currentBranch } = {}) {
   const { stdout } = await execAsync(
     `git push --set-upstream origin ${currentBranch}`
   );
