@@ -167,7 +167,7 @@ if (shouldPush) {
   if (isCancel(sure))
     exitProgram({ message: LANGUAGES_TEXT[languageSelected].exitDefault });
 
-  await gitPush(pushBranch);
+  await gitPush({ pushBranch });
 }
 
 outro(colors.green(LANGUAGES_TEXT[languageSelected].successMessage));
