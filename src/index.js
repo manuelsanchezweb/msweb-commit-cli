@@ -3,6 +3,7 @@ import {
   intro,
   isCancel,
   multiselect,
+  note,
   outro,
   select,
   text,
@@ -144,6 +145,8 @@ if (!shouldContinue) {
 }
 
 await gitCommit({ commit });
+
+note(colors.cyan(LANGUAGES_TEXT[languageSelected].successMessage));
 
 const shouldPush = await confirm({
   initialValue: true,
